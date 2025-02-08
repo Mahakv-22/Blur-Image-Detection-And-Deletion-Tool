@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blurry Images</title>
+</head>
+<body>
+    <h1>Blurry Images Detected</h1>
+    {% if blurry_images %}
+        <p>The following images are blurry:</p>
+        <ul>
+            {% for img in blurry_images %}
+                <li>
+                    <img src="/uploads/{{ img }}" alt="{{ img }}" style="max-width: 200px; max-height: 200px;">
+                    <p>{{ img }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No blurry images detected!</p>
+    {% endif %}
+    <a href="/">Go Back</a>
+</body>
+</html>
